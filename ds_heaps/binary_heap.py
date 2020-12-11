@@ -26,7 +26,7 @@ class BinaryHeap:
     
     def percolate_down(self, element_index):
         while element_index * 2 < self.current_size:
-            min_child_idx = self.min_child(self.heap_list[element_index])
+            min_child_idx = self.min_child(element_index)
             if self.heap_list[element_index] > self.heap_list[min_child_idx]:
                 self.heap_list[element_index], self.heap_list[min_child_idx] = self.heap_list[min_child_idx], self.heap_list[element_index]
             element_index = min_child_idx
@@ -53,4 +53,6 @@ if __name__ == "__main__":
 
     b1 = BinaryHeap()
     b1.build_heap([9,3,7,4,2,6,1,89])
+    print(b1.heap_list)
+    b1.insert(5)
     print(b1.heap_list)
